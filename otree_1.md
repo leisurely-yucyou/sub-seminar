@@ -17,3 +17,4 @@
 
 #### oTree用のディレクトリの作成
 - 好きなところにoTree用のディレクトリ(フォルダ)を作成します。
+![image](https://user-images.githubusercontent.com/48300561/167908122-a4b63b3d-df9c-4127-acd9-67b7c0b98c1f.png)
