@@ -54,8 +54,11 @@
 - "Open your browser to http://localhost:8000/ "と表示されるので、http://localhost:8000/ にアクセスします。
   - "Open your browser ~"が表示されない人は言ってください。
 
-- 下の画像の様な画面が表示されるので""  
+- 下の画像の様な画面が表示されるので"Guess 2/3 of the Average"をクリックします。  
+
 ![image](https://user-images.githubusercontent.com/48300561/167981055-7e1d6155-373b-4147-a9d2-5d977b8138ec.png)
+
+- すると、次の画像の様な画面が表示されるので
 
 
 
