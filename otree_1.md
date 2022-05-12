@@ -58,7 +58,10 @@
 
 ![image](https://user-images.githubusercontent.com/48300561/167981055-7e1d6155-373b-4147-a9d2-5d977b8138ec.png)
 
-- すると、次の画像の様な画面が表示されるので
+- すると、次の画像の様な画面が表示されるので　　
+
+![image](https://user-images.githubusercontent.com/48300561/167981337-2c226af0-5327-4e38-a827-d9af00677edb.png)
+
 
 
 
