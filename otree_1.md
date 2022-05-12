@@ -45,6 +45,8 @@
 - コマンドプロンプトを起動します。  
   - コマンドプロンプトの起動方法が分からない人へ  
   Windowsキー+Rを押して"cmd"と打ち込むことで起動できます。
+  ![image](https://user-images.githubusercontent.com/48300561/167978248-1a4923e9-ff07-4ec7-9792-eaf4eac20ffd.png)
+
 
 
 
