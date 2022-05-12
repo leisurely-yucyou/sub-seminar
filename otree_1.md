@@ -44,9 +44,17 @@
 ## ローカルでoTreeを動かしてみる
 - コマンドプロンプトを起動します。  
   - コマンドプロンプトの起動方法が分からない人へ  
-  Windowsキー+Rを押して"cmd"と打ち込むことで起動できます。
-  ![image](https://user-images.githubusercontent.com/48300561/167978248-1a4923e9-ff07-4ec7-9792-eaf4eac20ffd.png)
+  Windowsキー+Rを押して"cmd"と打ち込むことで起動できます。  
 
+![image](https://user-images.githubusercontent.com/48300561/167978248-1a4923e9-ff07-4ec7-9792-eaf4eac20ffd.png)
+
+- コマンドプロンプト上で```cd subsemi_1```と打ち込みます。
+
+- コマンドプロンプト上で```otree devserver```と打ち込みます。
+- "Open your browser to http://localhost:8000/ "と表示されるので、http://localhost:8000/ にアクセスします。
+  - "Open your browser ~"が表示されない人は言ってください。
+
+- 下の画像の様な画面が表示されるので""
 
 
 
