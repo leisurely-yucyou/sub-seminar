@@ -38,6 +38,8 @@
 - VScodeを起動して画面左上にある"ファイル"から"フォルダを開く"を選択し、前回の勉強会で作成したoTreeのフォルダを開きます。
 - 画面上部にある"Terminal"から"New Terminal"をクリックすると画面下部にターミナルが開かれます。
 
+![image](https://user-images.githubusercontent.com/48300561/169308164-474d7369-3c8d-46b5-86c9-d954911ffbe0.png)
+
 
 
 
