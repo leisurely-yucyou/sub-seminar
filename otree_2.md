@@ -41,6 +41,13 @@
 ![image](https://user-images.githubusercontent.com/48300561/169308164-474d7369-3c8d-46b5-86c9-d954911ffbe0.png)
 
 
+- ターミナルに"otree devserver"と打ち込み、ローカルでoTreeを起動します。  
+※エラーが出る場合コマンドプロンプトなどでoTreeを起動しても大丈夫です。
+
+- http://localhost:8000/ にアクセスします。
+
+
+
 
 
 ## 参考URL
