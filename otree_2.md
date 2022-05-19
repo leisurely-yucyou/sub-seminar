@@ -52,7 +52,11 @@
 
 ![image](https://user-images.githubusercontent.com/48300561/169311145-bdb59769-4670-47a0-8131-ba9004ec7d6d.png)
 
+- ブラウザ上で表示されている内容がHTMLファイルには書いていないことが分かります。
 
+- VScode上に"{{ }}"で囲まれている部分はotree用のコマンドです。
+
+- VScodeの4行目に"{{ include C.INSTRUCTIONS_TEMPLATE }}"と書いているので、"__init__.py"を開いてclass Cの"INSTRUCTIONS_TEMPLATE"を確認します。
 
 
 
