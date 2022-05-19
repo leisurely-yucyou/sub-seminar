@@ -95,6 +95,7 @@
 #### Guess.html
 
 - まずHTMLファイルの内容について説明します。
+![image](https://user-images.githubusercontent.com/48300561/169323269-a9835939-d88c-463a-a455-2fb6825d09b8.png)
 
 -
 
