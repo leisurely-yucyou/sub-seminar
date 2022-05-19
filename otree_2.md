@@ -6,8 +6,8 @@
 - [HTMLを触ってみる](#HTMLを触ってみる)
 
 ### 前回の内容
-- [PythonとoTreeの導入](#pythonとotreeの導入)
-- [ローカルでoTreeを動かしてみる](#ローカルでotreeを動かしてみる)
+- PythonとoTreeの導入
+- ローカルでoTreeを動かしてみる
 
 
 ## テキストエディタの導入
@@ -95,9 +95,18 @@
 #### Guess.html
 
 - まずHTMLファイルの内容について説明します。
+
 ![image](https://user-images.githubusercontent.com/48300561/169323269-a9835939-d88c-463a-a455-2fb6825d09b8.png)
 
--
+- 4行目はif文と言い"{{ if ~ }}"と"{{ endif }}"がセットとなっています。、if 以降の条件が成立している場合にその内容を表示するというもので、ここでは"{{ if player.round_number > 1 }}"となっていることから、プレイヤーのプレイしているラウンドが2回目以降の場合に表示するようになっています。  
+
+- 11,12,14行目はoTreeのコマンドです。次回以降の勉強会で説明します。
+
+- 各自、英文を日本語に変更しましょう
+
+#### Results.heml
+
+- 割愛します。
 
 ## 参考URL
 - [oTree公式サイト](https://otree.readthedocs.io/en/latest/)
