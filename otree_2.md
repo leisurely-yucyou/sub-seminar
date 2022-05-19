@@ -46,6 +46,14 @@
 
 - http://localhost:8000/ にアクセスします。
 
+- Guess 2/3 of the Averageを開きます
+
+- 下の画の画面左部分はブラウザでイントロダクションのページを開いたもので、右部分はVScodeでHTMLファイルを開いたものです。
+
+![image](https://user-images.githubusercontent.com/48300561/169311145-bdb59769-4670-47a0-8131-ba9004ec7d6d.png)
+
+
+
 
 
 
