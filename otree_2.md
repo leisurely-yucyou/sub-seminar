@@ -19,6 +19,13 @@
 
 #### Visual Studio Codeのインストール
 - https://code.visualstudio.com/ からインストーラーをダウンロードしてインストールしましょう。
+- サイトにアクセスすると次のような画面になります。"Download for Windows"と書いてある青いボタンをクリックしてインストーラーをダウンロードします。
+- ダウンロード出来たらインストーラーを起動して、表示される指示に従ってインストールを進めましょう。
+![image](https://user-images.githubusercontent.com/48300561/169306755-388bc303-4e95-4da6-9453-6c19f455d08e.png)
+
+
+
+
 - わかりやすい説明は[ここ](https://qiita.com/MtBigYashi/items/a840865a6908de044724)
 
 - VScodeをより快適にするためには
