@@ -58,6 +58,24 @@
 
 - VScodeの4行目に"{{ include C.INSTRUCTIONS_TEMPLATE }}"と書いているので、"__init__.py"を開いてclass Cの"INSTRUCTIONS_TEMPLATE"を確認します。
 
+![image](https://user-images.githubusercontent.com/48300561/169313437-06011a8b-13c9-4930-a463-dc5a5767d338.png)
+
+- ```INSTRUCTIONS_TEMPLATE = 'guess_two_thirds/instructions.html'```と書いてあるのでinstructions.htmlを呼び出していることが分かりました。
+- それではinstructions.htmlをVScodeで開いてみましょう。
+
+![image](https://user-images.githubusercontent.com/48300561/169313792-29d6507f-c223-4f80-8a93-c1d551e18943.png)
+- ブラウザ上で表示される文章と同じものがあることが分かります。
+
+- それではHTMLファイルに変更を加えていきます。
+
+- 先ほど"{{}}"で囲まれた部分はoTreeのコマンドと説明しましたが"<>"や"</>"で囲まれているのはHTMLのコマンドです。
+- 6行目の"Instructions"を"インストラクション"と日本語に修正します。
+- 修正出来たら"ctrl+S"を押して変更を保存します。
+- ブラウザを更新すると下の画面のように変更が反映されます。
+
+![image](https://user-images.githubusercontent.com/48300561/169314658-d914dd1f-72dd-4b39-9ae9-af3c89b744ed.png)
+
+- 上と同様に他の部分も日本語に書き換えてみましょう。
 
 
 
