@@ -48,6 +48,8 @@
 
 - Guess 2/3 of the Averageを開きます
 
+#### Introducion.html
+
 - 下の画の画面左部分はブラウザでイントロダクションのページを開いたもので、右部分はVScodeでHTMLファイルを開いたものです。
 
 ![image](https://user-images.githubusercontent.com/48300561/169311145-bdb59769-4670-47a0-8131-ba9004ec7d6d.png)
@@ -63,22 +65,38 @@
 - ```INSTRUCTIONS_TEMPLATE = 'guess_two_thirds/instructions.html'```と書いてあるのでinstructions.htmlを呼び出していることが分かりました。
 - それではinstructions.htmlをVScodeで開いてみましょう。
 
-![image](https://user-images.githubusercontent.com/48300561/169313792-29d6507f-c223-4f80-8a93-c1d551e18943.png)
-- ブラウザ上で表示される文章と同じものがあることが分かります。
+#### instructions.html
 
-- それではHTMLファイルに変更を加えていきます。
+![image](https://user-images.githubusercontent.com/48300561/169313792-29d6507f-c223-4f80-8a93-c1d551e18943.png)
+- ブラウザ上で表示される文章と同じものがあることが分かります。それではHTMLファイルに変更を加えていきます。
 
 - 先ほど"{{}}"で囲まれた部分はoTreeのコマンドと説明しましたが"<>"や"</>"で囲まれているのはHTMLのコマンドです。
-- 6行目の"Instructions"を"インストラクション"と日本語に修正します。
-- 修正出来たら"ctrl+S"を押して変更を保存します。
+- 6行目の"Instructions"を"インストラクション"と日本語に修正します。修正出来たら"ctrl+S"を押して変更を保存します。
 - ブラウザを更新すると下の画面のように変更が反映されます。
 
 ![image](https://user-images.githubusercontent.com/48300561/169314658-d914dd1f-72dd-4b39-9ae9-af3c89b744ed.png)
 
-- 上と同様に他の部分も日本語に書き換えてみましょう。
+- 上と同様に他の部分も日本語に書き換えてみましょう。(下に日本語訳を書いているのでコピペでOKです。)
 
+  - 10~15行目  
+  あなたは{{ C.PLAYERS_PER_GROUP }}人一組のグループに分けられました。  
+  各人は0から{{ C.GUESS_MAX }}の間の数字を一つ選択します。  
+  全員が選んだ数字の平均に2/3をかけた数字に最も近い数字を選択した人が勝ちです。
 
+  - 19~21行目  
+  勝った人は{{ C.JACKPOT }}を得る事が出来ます。  
+  もし勝った人が複数人いた場合は{{ C.JACKPOT }}を勝った人で等分します。
 
+  - 24行目  
+  このゲームは{{ C.NUM_ROUNDS }}回繰り返し行ないます。
+
+- このページの変更は以上です。
+
+#### Guess.html
+
+- まずHTMLファイルの内容について説明します。
+
+-
 
 ## 参考URL
 - [oTree公式サイト](https://otree.readthedocs.io/en/latest/)
