@@ -17,3 +17,5 @@
 
 ```otree startapp questionnaire```
 - questionnaireというアプリフォルダを作成します。
+
+![image](https://user-images.githubusercontent.com/48300561/173709744-953ae832-7a76-49bc-b441-161f07b891c7.png)
