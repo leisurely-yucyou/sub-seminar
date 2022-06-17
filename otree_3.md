@@ -231,7 +231,7 @@ class Page1(Page):
     form_fields = [
     'q_gender',
     'q_age',
-    'q_country',
+    'q_prefecture',
     'q_tanmatsu'
     ]
 ```
