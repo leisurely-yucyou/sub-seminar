@@ -18,8 +18,8 @@
 
 ### 今回のアプリ作成の手順
 1. \_\_init__.py 内のmodels
-2. HTMLファイル
-3. \_\_init__.py 内のpages
+2. \_\_init__.py 内のpages
+3. HTMLファイル
 4. アプリの登録
 
 ### models
