@@ -32,7 +32,7 @@ class C(BaseConstants):
     NAME_IN_URL = 'prisoners_dilemma'
     PLAYERS_PER_GROUP = 2 # 2人一組でおこなう
     NUM_ROUNDS = 1 # 1ラウンドのみ
-    INSTRUCTIONS_TEMPLATE = 'prisoner/instructions.html'
+    INSTRUCTIONS_TEMPLATE = 'prisoners_dilemma/instructions.html'
     PAYOFF_A = 2000 # 自分が裏切り、あいては協力
     PAYOFF_B = 1000 # 2人とも協力
     PAYOFF_C = 500  # 2人とも裏切り
