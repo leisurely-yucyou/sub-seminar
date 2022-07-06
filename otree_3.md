@@ -76,7 +76,7 @@ class Player(BasePlayer):
                                         'それ以外'
                                         ],
                                 verbose_name='この回答は、どの電子機器で回答していますか？',
-                                widget=widgets.RadioSelect
+                                widget=widgets.RadioSelect()
                                 )
     q_allais_A = models.CharField(initial=None,
                                 choices=['くじ１：確実に10万円', 'くじ２：確率0.01で0円、確率0.1で50万円、確率0.89で10万円を得る'
@@ -231,7 +231,7 @@ class Page1(Page):
     form_fields = [
     'q_gender',
     'q_age',
-    'q_country',
+    'q_prefecture',
     'q_tanmatsu'
     ]
 ```
