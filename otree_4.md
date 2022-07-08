@@ -44,9 +44,9 @@ class C(BaseConstants):
 
 ```
 class Player(BasePlayer):
-    cooperate = models.BoolenField(
+    cooperate = models.BooleanField(
         choices=[[True, '協力する'], [False,'裏切る']],
-        widget=wigets.RadioSelect,
+        widget=widgets.RadioSelect,
     )
 ```
 
