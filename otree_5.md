@@ -54,7 +54,7 @@ heroku dashboardの画面
 
 - Dashboard画面に先ほど入力したアプリ名が表示されていればアプリ登録終了です。
 
-### oTree zipの準備
+## oTree zipの準備
 
 ``` cd D:\otree_sub_semi\subsemi_1 ```
 
@@ -65,7 +65,7 @@ heroku dashboardの画面
 - 上のコマンドを実行して「Saved your code info file "ディレクトリ名.otreezip"」と表示されたらOKです。
 
 
-### oTree Hub
+## oTree Hub
 
 #### アカウントの登録
 
