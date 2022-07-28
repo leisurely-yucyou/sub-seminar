@@ -44,9 +44,9 @@ class C(BaseConstants):
 
 ```
 class Player(BasePlayer):
-    cooperate = models.BoolenField(
+    cooperate = models.BooleanField(
         choices=[[True, '協力する'], [False,'裏切る']],
-        widget=wigets.RadioSelect,
+        widget=widgets.RadioSelect,
     )
 ```
 
@@ -84,8 +84,8 @@ def set_payoff(player: Player):
     payoff_matrix = {
         (False, True): C.PAYOFF_A,
         (True, True): C.PAYOFF_B,
-        (True, False): C.PAYOFF_C,
-        (False, False): C.PAYOFF_D,
+        (True, False): C.PAYOFF_D,
+        (False, False): C.PAYOFF_C,
     }
     other = other_player(player)
     player.payoff = payoff_matrix[(player.cooperate, other.cooperate)]
