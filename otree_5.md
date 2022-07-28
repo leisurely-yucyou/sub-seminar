@@ -2,7 +2,7 @@
 
 ## 本日の内容
 
-- Herokuの登録
+- [Herokuの登録](Heroku)
 - oTree Hubの使い方
 
 ### 前回の内容
@@ -10,319 +10,92 @@
 
 ## Heroku
 
-#### Herokuの登録
-```cd D:\otree_sub_semi\subsemi_1```
+#### アカウントの登録
+
+- [Heroku](https://jp.heroku.com/)にアクセスします。
+
+- 次のような画面が表示されるので新規登録からアカウントの登録を行ないます。
+
+ここに新規登録画面
+
+- 新規登録をクリックすると次の画面が表示されるので必要な情報を入力しましょう。
+
+ここに情報登録画面
+
+- 「登録したメールアドレス宛にメールを送信した」と表示されるのでメールボックスを確認しましょう。
+
+- 届いたメールのリンクをクリックしてパスワードを決定しましょう。
+
+- Herokuのサイトに戻りログイン出来たらOKです。
+
+####  クレジットカードの登録
+
+- クレジットカードの登録も必要なので行ないます。(TA等で何度も実験を行ないましたが請求が来たことはないのでご心配なく)
+
+herokuの適当な画面
+
+-右上のアイコンをクリックし Account settingsにアクセスします。
+
+billingの画面
+
+- Billingの設定を開きクレジットカードの登録を行ないます。
+
+次のように登録したクレジットカードの情報が表示されたらOKです。
+
+#### アプリ登録
+
+- Herokuの[Dashboard](https://dashboard.heroku.com/apps)にアクセスします。
+
+heroku dashboardの画面
+
+- newというボタンをクリックしcreate new appをクリックします。
+
+- app nameは何のアプリかわかる名前を付け、regionはUSのままで大丈夫です。入力できたらcreate appをクリックします。
+
+- Dashboard画面に先ほど入力したアプリ名が表示されていればアプリ登録終了です。
+
+### oTree zipの準備
+
+``` cd D:\otree_sub_semi\subsemi_1 ```
+
 - コマンドプロンプトの現在のディレクトリをotreeの作業ディレクトリにします。  
 
-```otree startapp prisoners_dilemma```
-- prisoners_dilemmaというアプリフォルダを作成します。  
-
-### 今回のアプリ作成の手順
-1. \_\_init__.py 内のmodels
-2. \_\_init__.py 内のpages
-3. HTMLファイル
-4. アプリの登録
-
-### models
-
-#### Constantsクラスの定義
-- prisoners_dilemmaフォルダ内の\_\_init__.pyを開きます。
-
-```
-class C(BaseConstants):
-    NAME_IN_URL = 'prisoners_dilemma'
-    PLAYERS_PER_GROUP = 2 # 2人一組でおこなう
-    NUM_ROUNDS = 1 # 1ラウンドのみ
-    INSTRUCTIONS_TEMPLATE = 'prisoners_dilemma/instructions.html'
-    PAYOFF_A = 2000 # 自分が裏切り、あいては協力
-    PAYOFF_B = 1000 # 2人とも協力
-    PAYOFF_C = 500  # 2人とも裏切り
-    PAYOFF_D = 0    # 自分が協力、あいては裏切り
-```
-
-
-#### Playerクラスの定義
-
-```
-class Player(BasePlayer):
-    cooperate = models.BoolenField(
-        choices=[[True, '協力する'], [False,'裏切る']],
-        widget=wigets.RadioSelect,
-    )
-```
-
-___
-- choicesは```[value, display]```というリストを用いることで表示する名前と使う値を違うものに設定することができます。
-- 詳しくは[oTree公式マニュアル](https://otree.readthedocs.io/en/latest/forms.html#choices)
-___
-
-#### Groupクラスの定義
-- このアプリではプレイヤー同士の活動・やりとりはないので特に定義しません。
-
-```
-class Group(BaseGroup):
-    pass
-```
-
-#### Subsessionクラスの定義
-- このアプリではプレイヤー同士の活動・やりとりがないので特に定義しません。
-
-```
-class Subsession(BaseSubsession):
-    pass
-```
-
-#### 計算に用いる関数の定義
-- other_playerでは相手となるプレイヤーのIDを取得します。
-```
-def other_player(player: Player):
-    return player.get_others_in_group()[0]
-```
-
-- set_payoffではプレイヤーの利得の計算をおこないます。
-```
-def set_payoff(player: Player):
-    payoff_matrix = {
-        (False, True): C.PAYOFF_A,
-        (True, True): C.PAYOFF_B,
-        (True, False): C.PAYOFF_C,
-        (False, False): C.PAYOFF_D,
-    }
-    other = other_player(player)
-    player.payoff = payoff_matrix[(player.cooperate, other.cooperate)]
-```
-
-- set_payoffsでは各プレイヤーの利得の計算をおこないます。
-```
-def set_payoffs(group: Group):
-    for p in group.get_players():
-        set_payoff(p)
-```
-
-### pagesの定義
-
-#### Introductionについて
-```
-class Introduction(Page):
-    timeout_seconds = 100
-```
-
-- ```timeout_seconds = ```でそのページの制限時間を設定します。
-
-#### Desicionについて
-```
-class Decision(Page):
-    form_model = 'player'
-    form_fields = ['cooperate']
-```
-
-- formmodelとform_fieldsを設定します。  
-  これでプレイヤーの選択の入力を受け取ります。
-
-#### ResultsWaitPageについて
-```
-class ResultsWaitPage(WaitPage):
-    after_all_players_arrive = set_payoffs # 両プレイヤーが選択後に関数を実行
-```
-
-- ```after_all_players_arrive = set_payoffs``` では両プレイヤーが行動を選択したあとにset_payoffs関数を呼び出し利得を計算します。
-
-#### Resultsについて
-```
-class Results(Page):
-    @staticmethod # 誰か使い方を教えて下さい
-    def vars_for_template(player: Player):
-        opponent = other_player(player)
-        return dict(
-            opponent=opponent,
-            same_choice=player.cooperate == opponent.cooperate,
-            my_decision=player.field_display('cooperate'),
-            opponent_decision=opponent.field_display('cooperate'),
-        )
-```
-
-- @staticmethod ：勉強不足のためあまりわかりません。
-- vars_for_template: Results.htmlで使用する変数を定義します。
-
-#### ページの表示する順番を設定する
-```
-page_sequence = [Introduction, Decision, ResultsWaitPage, Results]
-```
-
-### HTMLの定義
-- HTMLでは表示するページの内容を作成します。
-- prisoners_dilemmaの中に
-  - Introduction.html
-  - instructions.html
-  - Decision.html
-  - Results.html  
-
-  というhtmlファイルを作成します。
-
-
-
-##### Introduction.html
-
-- ```{{ include C.INSTRUCTIONS_TEMPLATE }}```によってinstructions.htmlを呼び出します。
-
-```
-{{ block title }}実験説明{{ endblock }}
-{{ block content }}
-
-    {{ include C.INSTRUCTIONS_TEMPLATE }}
-
-    {{ next_button }}
-
-{{ endblock }}
-
-```
-
-##### instructions.html
-
-```
-<div class="card bg-light m-3">
-    <div class="card-body">
-
-    <h3>
-        インストラクション
-    </h3>
-
-    <p>
-      この実験ではあなたは無作為かつ匿名で他の参加者とペアを組むことになります。<br />
-      各参加者は同時に「協力する」もしくは「裏切る」のどちらかを選択します。<br />
-      あなたの利得は次の利得表に従います。
-    </p>
-
-    <p>各セルにおいて、左の数字があなたの利得、右の数字が相手の利得となっています。</p>
-
-    <table class='table table-bordered text-center'
-           style='width: auto; margin: auto'>
-        <tr>
-            <th colspan=2 rowspan=2></th>
-            <th colspan=2>あいて</th>
-        </tr>
-        <tr>
-            <th>協力する</th>
-            <th>裏切る</th>
-        </tr>
-        <tr>
-            <th rowspan=2><span style="transform: rotate(-90deg);">あなた</span></th>
-            <th>協力する</th>
-            <td>{{ C.PAYOFF_B }}, {{ C.PAYOFF_B }}</td>
-            <td>0, {{ C.PAYOFF_A }}</td>
-        </tr>
-        <tr>
-            <th>裏切る</th>
-            <td>{{ C.PAYOFF_A }}, 0</td>
-            <td>{{ C.PAYOFF_C }}, {{ C.PAYOFF_C }}</td>
-        </tr>
-    </table>
-
-    </div>
-</div>
-```
-
-- ```<div>...</div>```で...に記述されるグループ化します.　また、classによって命名しCSSで見た目を変更することができます。
-- ```<h3>...</h3>```はサイズが3番目に大きい見出しタグです。
-- ```<p>...</p>```は段落を指定するタグです。
-- ```<tale>...</table>```は表を作成するタグです。  
-  ```<tr>...</tr>```で行を設定し  
-  ```<td>...</td>```で列を設定し  
-  ```<th>...</th>```で見出しを設定します。
-  - 詳しくは[こちら](http://www.htmq.com/html/table.shtml)を参照
-
-
-#### Desicion.html
-
-```
-{{ block title }}行動の選択{{ endblock }}
-{{ block content }}
-
-    <div class="form-group required">
-        <table class="table table-bordered text-center" style="width: auto; margin: auto">
-            <tr>
-                <th colspan="2" rowspan="2"></th>
-                <th colspan="2">相手</th>
-            </tr>
-            <tr>
-                <th>協力する</th>
-                <th>裏切る</th>
-            </tr>
-            <tr>
-                <th rowspan="2"><span>あなた</span></th>
-                <td><button name="cooperate" value="True" class="btn btn-primary btn-large">協力する</button></td>
-                <td>{{C.PAYOFF_B}}, {{C.PAYOFF_B}}</td>
-                <td>{{ C.PAYOFF_D }}, {{C.PAYOFF_A}}</td>
-            </tr>
-            <tr>
-                <td><button name="cooperate" value="False" class="btn btn-primary btn-large">裏切る</button></td>
-                <td>{{C.PAYOFF_A}}, {{ C.PAYOFF_D }}</td>
-                <td>{{C.PAYOFF_C}}, {{C.PAYOFF_C}}</td>
-            </tr>
-        </table>
-    </div>
-
-    <p>相手プレイヤーとチャットが出来ます。</p>
-
-    {{ chat }}
-
-
-    {{ include C.INSTRUCTIONS_TEMPLATE }}
-
-{{ endblock }}
-```
-
-- ```rowspan, colspan```ではセルを結合することができます。
-- ```<button name="cooperate">...</button>```ではボタンを設定できます。  
-  ```name="cooperate"```でPage'sで定義する```form_fields = ['cooperate']```を参照し  
-  Player modelで定義した```cooperate = models.BooleanField(...)```に値を格納します。
-- ```{{ chat }}```でチャットボックスを追加できます。
-
-#### Results.html
-```
-{{ block title }}結果{{ endblock }}
-{{ block content }}
-
-    <p>
-        {{ if same_choice }}
-            あなたと相手の選択は {{ my_decision }}　でした。
-        {{ else }}
-            あなたは {{ my_decision }} を、相手は {{ opponent_decision }}　を選択しました。
-        {{ endif }}
-    </p>
-
-    <p>
-        結果として、 あなたは {{ player.payoff }}　を得ました。
-    </p>
-
-    実験は以上となります。<br />
-    ご協力ありがとうございました。
-
-    {{ include C.INSTRUCTIONS_TEMPLATE }}
-
-{{ endblock }}
-```
-- {{ ... }} でPagesのResultsで定義した変数を参照します。
-
-
-### settingにおけるsession configsの設定
-- 作成したアプリを実際に動かすには、settings.pyの中のSESSION_CONFIGSにアプリを登録する必要があります。
-
-```
-SESSION_CONFIGS = [
-    dict(
-        name='prisoners_dilemma',
-        display_name="囚人のジレンマ",
-        num_demo_participants=2, # ここでデモ用の参加人数を設定します
-        app_sequence=['prisoners_dilemma']
-    ),
-]
-```
-
-### 実際に動かしてみよう
-- コマンドプロンプトで```otree devserver```と打ち込みます。
-- http://localhost:8000/ にアクセスしてください。
-
-
-## 参考資料
-- 2022oTree春合宿資料(URLの記載がOKかわからないのでここでは貼っていません)
+```otree zip```
+
+- 上のコマンドを実行して「Saved your code info file "ディレクトリ名.otreezip"」と表示されたらOKです。
+
+
+### oTree Hub
+
+#### アカウントの登録
+
+- [oTree Hub](https://www.otreehub.com/)にアクセスします。次のような画面が表示されるのでRegisterから登録を行ないます。(登録手順は簡単なので割愛します)
+
+- 登録出来たらログインします。
+
+#### Herokuとの連携
+
+- Heroku server deploymentをクリックするとHerokuとの連携を要求されるので連携させます。
+
+- 連携させると次のような画面が表示されます。
+
+otree hub のheroku projectsの画面
+
+- Other Sitesに先ほどHerokuで登録したアプリが表示されているはずなのでRegisterをクリックしてActive Sitesに追加します。
+
+- 先ほどのアプリがActive Sitesに追加出来たらDeployをクリックします。
+
+- Upload code to Herokuから先ほど作ったotreezipファイルをアップロードします。
+
+- Build resultに"Your build succeeded."が表示されていればアップロード完了です。
+
+- 次にReset DBをクリックし、"Resetdb succeeded."と表示されたらOKです。
+
+- "https://アプリ名.herokuapp.com/"が背景が水色部分の4番にあるのでクリックします。
+
+- するとよく見る画面が表示されます。
+
+#### オンライン実験をするためには
+- 修論等でオンライン実験を行なうには他にも設定することがあります。
+
+- 被験者のログインIDやデバッグのオフなどについてはQ.3以降のサブゼミでやろうと思います。
