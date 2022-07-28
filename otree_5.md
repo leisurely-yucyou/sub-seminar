@@ -2,7 +2,7 @@
 
 ## 本日の内容
 
-- [Herokuの登録](Heroku)
+- Herokuの登録
 - oTree Hubの使い方
 
 ### 前回の内容
