@@ -74,7 +74,7 @@
 
 #### アカウントの登録
 
-- [oTree Hub](https://www.otreehub.com/)にアクセスします。次のような画面が表示されるのでRegisterから登録を行ないます。(登録手順は簡単なので割愛します)
+- [oTree Hub](https://www.otreehub.com/)にアクセスします。次のような画面が表示されるのでRegisterから登録を行ないます。(登録手順は簡単なので省略します)
 
 ![image](https://user-images.githubusercontent.com/48300561/181421096-f80424fa-d8c0-4981-96de-a9dd2d645e99.png)
 
